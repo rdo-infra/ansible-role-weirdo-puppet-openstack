@@ -25,7 +25,6 @@ For default values, see `defaults/main.yml`_
 * ``manage_repos``: Whether puppet-openstack-integration should manage repository setup
 * ``repository``: URL to the puppet-openstack-integration repository
 * ``clone_path``: Path where puppet-openstack-integration will be cloned
-* ``ceph_version``: Version of Ceph repository to set up (if necessary)
 * ``delorean_url``: URL to the delorean repository .repo file.
 * ``delorean_deps_url``: URL to the delorean-deps repository .repo file.
 * ``copy_puppet_logs_url``: URL to the copy_puppet_logs.sh script for puppet-openstack-integration log retrieval
