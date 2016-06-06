@@ -1,3 +1,5 @@
-# UUID                                  	Group Name
-#
-fae1e75635398fe666f29c8219695dd79722e8b0	rdo-infra/ansible-role-weirdo-puppet-openstack-ptl
+# UUID          Group Name
+False 	Non-Interactive Users
+9179fc793aaf98a577856305a26e0c199589157f       	rdo-infra/ansible-role-weirdo-puppet-openstack-core
+fae1e75635398fe666f29c8219695dd79722e8b0        	rdo-infra/ansible-role-weirdo-puppet-openstack-ptl
+global:Registered-Users		Registered Users
