@@ -13,17 +13,11 @@
 #   License for the specific language governing permissions and limitations
 #   under the License.
 #
+# Workaround for https://bugs.launchpad.net/puppet-openstack-integration/+bug/1592113
 
-- block:
-    - name: Install required packages
-      yum:
-        name: "{{ item }}"
-        state: "latest"
-      with_items: "{{ required_packages }}"
-      retries: "3"
-      delay: "20"
-  vars:
-    task: "tasks/packages.yml"
-  rescue:
-    - name: Failure occurred, executing rescue
-      include: roles/common/tasks/rescue.yml
+- command: git config --global user.email "you@example.com"  
+- command: git config --global user.name "Your Name"
+- name: Cherry-pick required patch
+  shell: git fetch https://git.openstack.org/openstack/puppet-openstack-integration refs/changes/35/329135/1 && git cherry-pick -x 22c29c79ace347ea6b77f5658ece5e565c3ad27a
+  args:
+    chdir: "{{ clone_path }}"
