@@ -17,7 +17,7 @@
 # the copy_puppet_logs script uses $WORKSPACE as root for the logs, we
 # actually want it to log to the standard log directory so hack that a bit
 - name: Recover puppet integration test logs
-  command: "./copy_puppet_logs.sh"
+  command: "./copy_logs.sh"
   environment:
     WORKSPACE: "{{ puppet_workspace }}"
   args:
