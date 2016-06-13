@@ -22,6 +22,7 @@
       environment:
         MANAGE_REPOS: "{{ manage_repos }}"
         SCENARIO: "{{ test }}"
+        GEM_HOME: "{{ clone_path }}/.bundled_gems"
   vars:
     task: "tasks/run.yml"
   rescue:

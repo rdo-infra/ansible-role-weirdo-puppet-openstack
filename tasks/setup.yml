@@ -20,18 +20,20 @@
         repo: "{{ repository }}"
         dest: "{{ clone_path }}"
         version: "{{ version }}"
+    - name: Cherry-pick required patch
+      shell: git fetch https://git.openstack.org/openstack/puppet-openstack-integration refs/changes/35/329135/1 && git cherry-pick -x 22c29c79ace347ea6b77f5658ece5e565c3ad27a
+      args:
+        chdir: "{{ clone_path }}"
+    - name: Create bundled gems directory
+      file:
+        path: "{{ clone_path }}/.bundled_gems"
+        state: directory
   vars:
     task: "tasks/setup.yml"
   rescue:
     - name: Failure occurred, executing rescue
       include: roles/common/tasks/rescue.yml
   always:
-    - name: Download script for retrieving logs
-      get_url:
-        url: "{{ copy_puppet_logs_url }}"
-        dest: "{{ clone_path }}/copy_puppet_logs.sh"
-        mode: "0755"
-
     - name: Create directory where puppet-openstack logs will be stored
       file:
         path: "{{ puppet_workspace }}"
