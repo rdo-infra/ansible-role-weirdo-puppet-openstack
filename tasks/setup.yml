@@ -20,18 +20,16 @@
         repo: "{{ repository }}"
         dest: "{{ clone_path }}"
         version: "{{ version }}"
+    - name: Create bundled gems directory
+      file:
+        path: "{{ clone_path }}/.bundled_gems"
+        state: directory
   vars:
     task: "tasks/setup.yml"
   rescue:
     - name: Failure occurred, executing rescue
       include: roles/common/tasks/rescue.yml
   always:
-    - name: Download script for retrieving logs
-      get_url:
-        url: "{{ copy_puppet_logs_url }}"
-        dest: "{{ clone_path }}/copy_puppet_logs.sh"
-        mode: "0755"
-
     - name: Create directory where puppet-openstack logs will be stored
       file:
         path: "{{ puppet_workspace }}"
