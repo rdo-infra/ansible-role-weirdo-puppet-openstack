@@ -22,14 +22,6 @@
       with_items: "{{ required_packages }}"
       retries: "3"
       delay: "20"
-
-    - name: Install required ruby gems
-      gem:
-        name: "{{ item }}"
-        state: "present"
-      with_items: "{{ gem_packages }}"
-      retries: "3"
-      delay: "20"
   vars:
     task: "tasks/packages.yml"
   rescue:
