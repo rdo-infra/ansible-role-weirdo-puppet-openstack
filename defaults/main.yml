@@ -15,8 +15,6 @@
 #
 
 project: "puppet-openstack"
-# Delorean repository (OpenStack) release
-openstack_release: "master"
 # Version of puppet-openstack-integration cloned
 version: "master"
 
@@ -24,8 +22,6 @@ manage_repos: "false"
 repository: "https://github.com/openstack/puppet-openstack-integration.git"
 clone_path: "/tmp/puppet-openstack"
 
-delorean_url: "http://trunk.rdoproject.org/centos7-{{ openstack_release }}/current-passed-ci/delorean.repo"
-delorean_deps_url: "http://trunk.rdoproject.org/centos7-{{ openstack_release }}/delorean-deps.repo"
 puppet_workspace: "{{ log_destination |default('/var/log/weirdo') }}/puppet-openstack"
 
 required_packages:

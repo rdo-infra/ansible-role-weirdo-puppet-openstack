@@ -15,18 +15,6 @@
 #
 
 - block:
-    - name: Setup delorean repository
-      get_url:
-        url: "{{ delorean_url }}"
-        dest: "/etc/yum.repos.d/delorean.repo"
-        mode: "0644"
-
-    - name: Setup delorean-deps repository
-      get_url:
-        url: "{{ delorean_deps_url }}"
-        dest: "/etc/yum.repos.d/delorean-deps.repo"
-        mode: "0644"
-
     # scenario001 uses Ceph backend for Cinder, Glance, Gnocchi
     - name: Enable CentOS storage SIG repository
       yum:
