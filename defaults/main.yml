@@ -19,7 +19,7 @@ project: "puppet-openstack"
 version: "master"
 
 manage_repos: "false"
-repository: "https://github.com/openstack/puppet-openstack-integration.git"
+repository: "https://git.openstack.org/openstack/puppet-openstack-integration"
 clone_path: "/tmp/puppet-openstack"
 
 puppet_workspace: "{{ log_destination |default('/var/log/weirdo') }}/puppet-openstack"
