@@ -14,12 +14,8 @@
 #   under the License.
 #
 
-- block:
-    # scenario001 uses Ceph backend for Cinder, Glance, Gnocchi
-    - include: "repositories/{{ openstack_release }}.yml"
-      when: test == "scenario001"
-  vars:
-    task: "tasks/repositories.yml"
-  rescue:
-    - name: Failure occurred, executing rescue
-      include: roles/common/tasks/rescue.yml
+# TODO: Use the RPM release when available
+- name: Enable CentOS storage SIG repository for Ceph Jewel
+  copy:
+    src: "ceph-jewel.repo"
+    dest: "/etc/yum.repos.d/ceph-jewel.repo"

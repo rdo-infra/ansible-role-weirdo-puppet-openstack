@@ -1,0 +1,10 @@
+# CentOS-Ceph-Hammer.repo
+#
+# Please see http://wiki.centos.org/SpecialInterestGroup/Storage for more
+# information
+
+[centos-ceph-hammer]
+name=CentOS-7 - Ceph Hammer
+baseurl=http://buildlogs.centos.org/centos/7/storage/x86_64/ceph-jewel/
+gpgcheck=0
+enabled=1

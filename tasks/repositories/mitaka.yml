@@ -14,12 +14,9 @@
 #   under the License.
 #
 
-- block:
-    # scenario001 uses Ceph backend for Cinder, Glance, Gnocchi
-    - include: "repositories/{{ openstack_release }}.yml"
-      when: test == "scenario001"
-  vars:
-    task: "tasks/repositories.yml"
-  rescue:
-    - name: Failure occurred, executing rescue
-      include: roles/common/tasks/rescue.yml
+- name: Enable CentOS storage SIG repository for Ceph Hammer
+  yum:
+    name: "centos-release-ceph-hammer"
+    state: "present"
+  retries: "3"
+  delay: "20"
