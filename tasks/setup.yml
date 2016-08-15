@@ -15,12 +15,14 @@
 #
 
 - block:
+    # Workaround for https://github.com/ansible/ansible-modules-core/issues/4431
     - name: Clone upstream puppet-openstack-integration repository
       git:
         repo: "{{ repository }}"
         dest: "{{ clone_path }}"
         version: "{{ version }}"
-    - name: Fetch and pull a review in progress
+      when: refspec is not defined
+    - name: Clone puppet-openstack-integration with a review in progress
       git:
         repo: "{{ repository }}"
         dest: "{{ clone_path }}"
