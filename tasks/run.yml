@@ -15,6 +15,10 @@
 #
 
 - block:
+    - name: "Patch run_tests.sh according to https://review.openstack.org/365772"
+      command: sed -i -e 's/TestManageQueue/v2.test_queues.TestManageQueue/' run_tests.sh
+      args:
+        chdir: "{{ clone_path }}"
     - name: "Run puppet integration test - {{ test }}"
       command: "./run_tests.sh"
       args:
