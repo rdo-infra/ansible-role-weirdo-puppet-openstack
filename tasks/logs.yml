@@ -22,5 +22,5 @@
     WORKSPACE: "{{ puppet_workspace }}"
   args:
     chdir: "{{ clone_path }}"
-    creates: "{{ puppet_workspace }}/logs"
+    creates: "{{ puppet_workspace }}/logs"
   ignore_errors: true

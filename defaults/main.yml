@@ -22,7 +22,7 @@ manage_repos: "false"
 repository: "https://git.openstack.org/openstack/puppet-openstack-integration"
 clone_path: "/tmp/puppet-openstack"
 
-puppet_workspace: "{{ log_destination |default('/var/log/weirdo') }}/puppet-openstack"
+puppet_workspace: "{{ log_destination |default('/var/log/weirdo') }}/puppet-openstack"
 
 required_packages:
   - libxml2-devel
