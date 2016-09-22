@@ -14,8 +14,9 @@
 #   under the License.
 #
 
-# TODO: Use the RPM release when available
 - name: Enable CentOS storage SIG repository for Ceph Jewel
-  copy:
-    src: "ceph-jewel.repo"
-    dest: "/etc/yum.repos.d/ceph-jewel.repo"
+  yum:
+    name: "centos-release-ceph-jewel"
+    state: "present"
+  retries: "3"
+  delay: "20"
