@@ -16,8 +16,9 @@
 
 - block:
     # scenario001 uses Ceph backend for Cinder, Glance, Gnocchi
+    # scenario004 uses Ceph backend with rgw for Glance
     - include: "repositories/{{ openstack_release }}.yml"
-      when: test == "scenario001"
+      when: test == "scenario001" or test == "scenario004"
   vars:
     task: "tasks/repositories.yml"
   rescue:
