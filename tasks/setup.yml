@@ -21,6 +21,7 @@
         repo: "{{ repository }}"
         dest: "{{ clone_path }}"
         version: "{{ version }}"
+        force: "yes"
       when: refspec is not defined
     - name: Clone puppet-openstack-integration with a review in progress
       git:
@@ -28,6 +29,7 @@
         dest: "{{ clone_path }}"
         refspec: "{{ refspec }}"
         version: "FETCH_HEAD"
+        force: "yes"
       when: refspec is defined
     - name: Create bundled gems directory
       file:
