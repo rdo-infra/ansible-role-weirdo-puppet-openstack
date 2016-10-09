@@ -16,6 +16,24 @@
       "revId": "90a8d345025511287d02428e56e427eb7b3dc369",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "dacfb570_0ffc043e",
+        "filename": "tasks/main.yml",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 16
+      },
+      "writtenOn": "2016-10-09T12:40:52Z",
+      "side": 1,
+      "message": "It is not expected that we should change this - weirdo is used for ephemeral integration tests. But I didn\u0027t realize it was possible to do in-line jinja expressions like that, thanks :)",
+      "parentUuid": "dacfb570_cf25bc0b",
+      "revId": "90a8d345025511287d02428e56e427eb7b3dc369",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
     }
   ]
 }
