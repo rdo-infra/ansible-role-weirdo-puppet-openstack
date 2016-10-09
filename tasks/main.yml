@@ -52,6 +52,14 @@
         path: "{{ clone_path }}/.bundled_gems"
         state: directory
 
+    - name: Configure kvm hypervisor if running nested virtualization
+      lineinfile:
+        line: "openstack_integration::nova::libvirt_virt_type: kvm"
+        state: "present"
+        insertafter: "EOF"
+        dest: "{{ clone_path }}/hiera/common.yaml"
+      when: nested_virtualization
+
     - name: "Run puppet integration test - {{ test }}"
       command: "./run_tests.sh"
       args:
