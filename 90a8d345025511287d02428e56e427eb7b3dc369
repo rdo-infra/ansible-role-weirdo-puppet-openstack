@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "dacfb570_cf25bc0b",
+        "filename": "tasks/main.yml",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 268
+      },
+      "writtenOn": "2016-10-09T12:23:03Z",
+      "side": 1,
+      "message": "Do we want to be able to revert the change ? (in which case,Ii would suggest to do something like:\n\nstate: {% if nested_virtualization %}present{% else %}absent{% endif %}\n\nAnd remove the when.",
+      "revId": "90a8d345025511287d02428e56e427eb7b3dc369",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
