@@ -34,6 +34,7 @@
     - name: Include extra repositories if required
       include: "repositories/{{ openstack_release }}.yml"
       when: test == "scenario001" or test == "scenario004"
+      static: no
 
     # Workaround for https://github.com/ansible/ansible-modules-core/issues/4431
     - name: Clone upstream puppet-openstack-integration repository
@@ -77,8 +78,10 @@
 
     - name: "Recover puppet-openstack logs"
       include: logs.yml
+      static: no
   vars:
     task: "tasks/main.yml"
   rescue:
     - name: Failure occurred, executing rescue
       include: roles/common/tasks/rescue.yml
+      static: no
