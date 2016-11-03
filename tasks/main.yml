@@ -14,59 +14,53 @@
 #   under the License.
 #
 
+- name: Install required packages
+  yum:
+    name: "{{ item }}"
+    state: "latest"
+  with_items: "{{ required_packages }}"
+  retries: "3"
+  delay: "20"
+
+# scenario001 uses Ceph backend for Cinder, Glance, Gnocchi
+# scenario004 uses Ceph backend with rgw for Glance
+- name: Include extra repositories if required
+  include: "repositories/{{ openstack_release }}.yml"
+  when: test == "scenario001" or test == "scenario004"
+  static: no
+
+# Workaround for https://github.com/ansible/ansible-modules-core/issues/4431
+- name: Clone upstream puppet-openstack-integration repository
+  git:
+    repo: "{{ repository }}"
+    dest: "{{ clone_path }}"
+    version: "{{ version }}"
+    force: "yes"
+  when: refspec is not defined
+
+- name: Clone puppet-openstack-integration with a review in progress
+  git:
+    repo: "{{ repository }}"
+    dest: "{{ clone_path }}"
+    refspec: "{{ refspec }}"
+    version: "FETCH_HEAD"
+    force: "yes"
+  when: refspec is defined
+
+- name: Create bundled gems directory
+  file:
+    path: "{{ clone_path }}/.bundled_gems"
+    state: directory
+
+- name: Configure kvm hypervisor if running nested virtualization
+  lineinfile:
+    line: "openstack_integration::nova::libvirt_virt_type: kvm"
+    state: "present"
+    insertafter: "EOF"
+    dest: "{{ clone_path }}/hiera/common.yaml"
+  when: nested_virtualization
+
 - block:
-    - name: Create directory where puppet-openstack logs will be stored
-      file:
-        path: "{{ puppet_workspace }}"
-        state: "directory"
-        recurse: "yes"
-
-    - name: Install required packages
-      yum:
-        name: "{{ item }}"
-        state: "latest"
-      with_items: "{{ required_packages }}"
-      retries: "3"
-      delay: "20"
-
-    # scenario001 uses Ceph backend for Cinder, Glance, Gnocchi
-    # scenario004 uses Ceph backend with rgw for Glance
-    - name: Include extra repositories if required
-      include: "repositories/{{ openstack_release }}.yml"
-      when: test == "scenario001" or test == "scenario004"
-      static: no
-
-    # Workaround for https://github.com/ansible/ansible-modules-core/issues/4431
-    - name: Clone upstream puppet-openstack-integration repository
-      git:
-        repo: "{{ repository }}"
-        dest: "{{ clone_path }}"
-        version: "{{ version }}"
-        force: "yes"
-      when: refspec is not defined
-
-    - name: Clone puppet-openstack-integration with a review in progress
-      git:
-        repo: "{{ repository }}"
-        dest: "{{ clone_path }}"
-        refspec: "{{ refspec }}"
-        version: "FETCH_HEAD"
-        force: "yes"
-      when: refspec is defined
-
-    - name: Create bundled gems directory
-      file:
-        path: "{{ clone_path }}/.bundled_gems"
-        state: directory
-
-    - name: Configure kvm hypervisor if running nested virtualization
-      lineinfile:
-        line: "openstack_integration::nova::libvirt_virt_type: kvm"
-        state: "present"
-        insertafter: "EOF"
-        dest: "{{ clone_path }}/hiera/common.yaml"
-      when: nested_virtualization
-
     - name: "Run puppet integration test - {{ test }}"
       command: "./run_tests.sh"
       args:
@@ -75,13 +69,12 @@
         MANAGE_REPOS: "{{ manage_repos }}"
         SCENARIO: "{{ test }}"
         GEM_HOME: "{{ clone_path }}/.bundled_gems"
-
-    - name: "Recover puppet-openstack logs"
-      include: logs.yml
-      static: no
-  vars:
-    task: "tasks/main.yml"
-  rescue:
-    - name: Failure occurred, executing rescue
-      include: roles/common/tasks/rescue.yml
-      static: no
+  always:
+    - name: Recover puppet integration test logs
+      command: "./copy_logs.sh"
+      environment:
+        WORKSPACE: "{{ puppet_workspace }}"
+      args:
+        chdir: "{{ clone_path }}"
+        creates: "{{ puppet_workspace }}/logs"
+      ignore_errors: true
