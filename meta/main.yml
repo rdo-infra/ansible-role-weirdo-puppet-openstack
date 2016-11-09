@@ -29,8 +29,3 @@ galaxy_info:
     - python
     - development
     - openstack
-
-# Depends on ansible-role-weirdo-common
-# Roles are collected via ansible-galaxy in WeIRDO
-dependencies:
-  - role: "common"
