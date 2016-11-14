@@ -69,6 +69,7 @@
         MANAGE_REPOS: "{{ manage_repos }}"
         SCENARIO: "{{ test }}"
         GEM_HOME: "{{ clone_path }}/.bundled_gems"
+        TEMPEST_VERSION: "{{ tempest version }}"
   always:
     - name: Recover puppet integration test logs
       command: "./copy_logs.sh"
