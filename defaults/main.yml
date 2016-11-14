@@ -21,6 +21,7 @@ version: "master"
 manage_repos: "false"
 repository: "https://git.openstack.org/openstack/puppet-openstack-integration"
 clone_path: "/tmp/puppet-openstack"
+tempest_version: ""
 
 puppet_workspace: "/var/log/weirdo-project"
 
