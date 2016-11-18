@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "5adbc538_34f2f89a",
+        "filename": "tasks/main.yml",
+        "patchSetId": 1
+      },
+      "lineNbr": 73,
+      "author": {
+        "id": 303
+      },
+      "writtenOn": "2016-11-18T04:24:58Z",
+      "side": 1,
+      "message": "By the way if you still wanted the puppet logs to goto to the console, you could add PUPPET_ARGS: \u0027--logdest console\u0027",
+      "revId": "760e0a54f633f861351c0b14cc0438ccbf6e3246",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
