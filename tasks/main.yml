@@ -54,11 +54,14 @@
 
 - name: Configure kvm hypervisor if running nested virtualization
   lineinfile:
-    line: "openstack_integration::nova::libvirt_virt_type: kvm"
+    line: "{{ item }}"
     state: "present"
     insertafter: "EOF"
     dest: "{{ clone_path }}/hiera/common.yaml"
   when: nested_virtualization
+  with_items:
+    - "openstack_integration::nova::libvirt_virt_type: kvm"
+    - "openstack_integration::nova::libvirt_cpu_mode: host-model"
 
 - block:
     - name: "Run puppet integration test - {{ test }}"
