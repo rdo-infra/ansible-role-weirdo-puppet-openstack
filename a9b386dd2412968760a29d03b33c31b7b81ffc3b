@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fab399f4_233738b2",
+        "filename": "tasks/repositories/mitaka.yml",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 16
+      },
+      "writtenOn": "2016-12-21T18:26:38Z",
+      "side": 1,
+      "message": "Can you just please add a comment with the upstream puppet-ceph review ?",
+      "revId": "a9b386dd2412968760a29d03b33c31b7b81ffc3b",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
