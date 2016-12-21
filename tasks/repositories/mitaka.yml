@@ -20,3 +20,16 @@
     state: "present"
   retries: "3"
   delay: "20"
+
+- name: Increase priority for hammer repo
+  command: "/usr/bin/yum-config-manager --save --setopt=centos-ceph-hammer.priority=1"
+
+- name: check if librbd1 is installed
+  command: "rpm -q librbd1"
+  register: librbd1
+  ignore_errors: true
+
+- name: reinstal librbd1 if it's installed
+  command: "yum reinstall -y librbd1"
+  when: librbd1.rc == 0
+
