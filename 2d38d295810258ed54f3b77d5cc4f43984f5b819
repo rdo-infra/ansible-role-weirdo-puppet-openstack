@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fab399f4_49e28dd6",
+        "filename": "tasks/repositories/mitaka.yml",
+        "patchSetId": 3
+      },
+      "lineNbr": 34,
+      "author": {
+        "id": 16
+      },
+      "writtenOn": "2016-12-23T14:00:37Z",
+      "side": 1,
+      "message": "I\u0027d prefer to keep something that resolves an issue local to a specific CI environment out of weirdo. Let\u0027s chat when you\u0027re back from lunch.",
+      "range": {
+        "startLine": 27,
+        "startChar": 0,
+        "endLine": 34,
+        "endChar": 23
+      },
+      "revId": "2d38d295810258ed54f3b77d5cc4f43984f5b819",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
