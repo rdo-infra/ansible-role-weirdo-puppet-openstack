@@ -29,6 +29,10 @@
   when: test == "scenario001" or test == "scenario004"
   static: no
 
+####
+# Ocata has not yet been branched in puppet-openstack-integration.
+# Remove these these temporary conditions when it's out.
+####
 # Workaround for https://github.com/ansible/ansible-modules-core/issues/4431
 - name: Clone upstream puppet-openstack-integration repository
   git:
@@ -36,7 +40,19 @@
     dest: "{{ clone_path }}"
     version: "{{ version }}"
     force: "yes"
-  when: refspec is not defined
+  when:
+    - refspec is not defined
+    - version != "stable/ocata"
+
+- name: Clone upstream puppet-openstack-integration repository (master override)
+  git:
+    repo: "{{ repository }}"
+    dest: "{{ clone_path }}"
+    version: "master"
+    force: "yes"
+  when:
+    - refspec is not defined
+    - version == "stable/ocata"
 
 - name: Clone puppet-openstack-integration with a review in progress
   git:
