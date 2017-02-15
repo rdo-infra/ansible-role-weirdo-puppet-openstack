@@ -83,6 +83,7 @@
         GEM_HOME: "{{ clone_path }}/.bundled_gems"
         TEMPEST_VERSION: "{{ tempest_version }}"
         WORKSPACE: "{{ puppet_workspace }}"
+        TEMPEST_FROM_SOURCE: "{{ tempest_from_source }}"
   always:
     - name: Recover puppet integration test logs
       command: "./copy_logs.sh"
