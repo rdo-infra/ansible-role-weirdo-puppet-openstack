@@ -56,14 +56,14 @@
 
     - name: Ensure nested virtualization is enabled
       command: cat /sys/module/kvm_intel/parameters/nested
-      register: nested_virtualization
+      register: nested_virtualization_enabled
       failed_when: ('FAILED' in nested_virtualization.stderr) or
                    ('N' in nested_virtualization.stdout)
 
     - debug:
         msg: >
           /sys/module/kvm_intel/parameters/nested:
-          {{ nested_virtualization.stdout }}
+          {{ nested_virtualization_enabled.stdout }}
   when:
     - "{{ 'Intel' in ansible_processor |join('') }}"
     - "{{ 'vmx' in cpu_flags }}"
@@ -88,14 +88,14 @@
 
     - name: Ensure nested virtualization is enabled
       command: cat /sys/module/kvm_amd/parameters/nested
-      register: nested_virtualization
+      register: nested_virtualization_enabled
       failed_when: ('FAILED' in nested_virtualization.stderr) or
                    ('0' in nested_virtualization.stdout)
 
     - debug:
         msg: >
           /sys/module/kvm_amd/parameters/nested:
-          {{ nested_virtualization.stdout }}
+          {{ nested_virtualization_enabled.stdout }}
   when:
     - "{{ 'AMD' in ansible_processor |join('') }}"
     - "{{ 'svm' in cpu_flags }}"
@@ -106,4 +106,4 @@
     state: "present"
     insertafter: "EOF"
     dest: "{{ clone_path }}/hiera/common.yaml"
-  when: nested_virtualization
+  when: nested_virtualization_enabled is defined
