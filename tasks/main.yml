@@ -36,7 +36,17 @@
     dest: "{{ clone_path }}"
     version: "{{ version }}"
     force: "yes"
+  register: gitclone_result
+  ignore_errors: yes
   when: refspec is not defined
+
+- name: Clone upstream puppet-openstack-integration repository from master branch (fallback)
+  git:
+    repo: "{{ repository }}"
+    dest: "{{ clone_path }}"
+    version: "master"
+    force: "yes"
+  when: refspec is not defined and gitclone_result|failed
 
 - name: Clone puppet-openstack-integration with a review in progress
   git:
