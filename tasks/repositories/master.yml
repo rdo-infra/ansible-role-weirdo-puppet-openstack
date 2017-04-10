@@ -20,8 +20,3 @@
     state: "present"
   retries: "3"
   delay: "20"
-
-# Temporarily enable the Jewel buildlogs repository to unblock ipv6 issue
-# resolved by 10.2.3 which has not yet made it to the stable repository.
-- name: Enable the Ceph Jewel testing repository
-  command: yum-config-manager --enable centos-ceph-jewel-test
