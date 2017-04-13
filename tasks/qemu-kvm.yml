@@ -67,10 +67,13 @@
 
     - name: Configure kvm hypervisor if running nested virtualization
       lineinfile:
-        line: "openstack_integration::nova::libvirt_virt_type: kvm"
+        line: "{{ item }}"
         state: "present"
         insertafter: "EOF"
         dest: "{{ clone_path }}/hiera/common.yaml"
+      with_items:
+        - "openstack_integration::nova::libvirt_virt_type: kvm"
+        - "openstack_integration::nova::libvirt_cpu_mode: host-model"
   when:
     - "{{ 'Intel' in ansible_processor |join('') }}"
     - "{{ 'vmx' in cpu_flags }}"
@@ -106,10 +109,13 @@
 
     - name: Configure kvm hypervisor if running nested virtualization
       lineinfile:
-        line: "openstack_integration::nova::libvirt_virt_type: kvm"
+        line: "{{ item }}"
         state: "present"
         insertafter: "EOF"
         dest: "{{ clone_path }}/hiera/common.yaml"
+      with_items:
+        - "openstack_integration::nova::libvirt_virt_type: kvm"
+        - "openstack_integration::nova::libvirt_cpu_mode: host-model"
   when:
     - "{{ 'AMD' in ansible_processor |join('') }}"
     - "{{ 'svm' in cpu_flags }}"
