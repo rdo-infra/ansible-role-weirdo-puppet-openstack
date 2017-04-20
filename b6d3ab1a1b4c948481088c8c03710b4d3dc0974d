@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "fa98f980_fd76a2d7",
+        "filename": "tasks/main.yml",
+        "patchSetId": 2
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 16
+      },
+      "writtenOn": "2017-04-20T15:08:32Z",
+      "side": 1,
+      "message": "nit, can you put the conditions in a list when it\u0027s an \"and\" ?\n\nie.,\n\n    when:\n      - refspec is not defined\n      - gitclone_result | failed",
+      "range": {
+        "startLine": 49,
+        "startChar": 8,
+        "endLine": 49,
+        "endChar": 57
+      },
+      "revId": "b6d3ab1a1b4c948481088c8c03710b4d3dc0974d",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
