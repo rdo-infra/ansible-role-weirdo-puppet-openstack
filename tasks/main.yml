@@ -15,10 +15,9 @@
 #
 
 - name: Install required packages
-  yum:
-    name: "{{ item }}"
+  package:
+    name: "{{ required_packages }}"
     state: "latest"
-  with_items: "{{ required_packages }}"
   retries: "3"
   delay: "20"
 

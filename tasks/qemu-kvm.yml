@@ -17,7 +17,7 @@
 # Setup qemu-kvm nested virtualization
 # This is the hypervisor used in our tests.
 - name: Install qemu-kvm
-  yum:
+  package:
     name: "qemu-kvm"
     state: "present"
   retries: "3"
