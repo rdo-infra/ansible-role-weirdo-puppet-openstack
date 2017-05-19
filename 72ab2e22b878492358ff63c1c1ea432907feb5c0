@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "baa201ad_e5945246",
+        "filename": "defaults/main.yml",
+        "patchSetId": 2
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 16
+      },
+      "writtenOn": "2017-05-19T16:42:30Z",
+      "side": 1,
+      "message": "I wonder if there\u0027s a better way to retrieve the list of modules to install. Can we parse it from upstream somehow ? Otherwise it means we have to maintain this list, we might miss an upstream addition and things like that.",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 92,
+        "endChar": 19
+      },
+      "revId": "72ab2e22b878492358ff63c1c1ea432907feb5c0",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
