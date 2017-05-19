@@ -33,7 +33,7 @@ required_packages:
   - rubygems
 
 # Install puppet modules from rpm in p-o-i
-enable_puppet_modules_rpm: false
+enable_puppet_modules_rpm: true
 # Package exclusions depends on release so i'll create a dict
 modules_rpm_excludes_common: 'cloudkitty|monasca|watcher|apt|python|postgresql'
 modules_rpm_excludes:
