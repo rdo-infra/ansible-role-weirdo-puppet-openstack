@@ -31,3 +31,12 @@ required_packages:
   - libxslt-devel
   - ruby-devel
   - rubygems
+
+# Install puppet modules from rpm in p-o-i
+
+enable_puppet_modules_rpm: false
+# Some modules are not required for centos or not packaged yet
+modules_rpm_excludes: 'cloudkitty|monasca|watcher|murano|apt|python|postgresql'
+puppet_modules_path: "{% if enable_puppet_modules_rpm %}/usr/share/openstack-puppet/modules:/etc/puppet/modules{% else %}/etc/puppet/modules{% endif %}"
+
+

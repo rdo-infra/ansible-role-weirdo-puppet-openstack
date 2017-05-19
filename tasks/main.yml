@@ -60,6 +60,16 @@
     path: "{{ clone_path }}/.bundled_gems"
     state: directory
 
+- block:
+  - name: get packages list
+    shell: "grep ^mod {{ clone_path }}/Puppetfile |egrep -v \'{{ modules_rpm_excludes }}\' |awk '{print $2}'|sed \"s/[,']//g\"|while read p; do printf puppet-$p,; done|sed \'s/,$//\'"
+    register: puppet_rpm_list
+
+  - name: Install puppet modules from rpm
+    yum:
+      name: "{{ puppet_rpm_list.stdout }}"
+  when: enable_puppet_modules_rpm
+
 - name: Set up qemu-kvm and nested virtualization if available
   include: qemu-kvm.yml
   static: no
@@ -76,6 +86,7 @@
         TEMPEST_VERSION: "{{ tempest_version }}"
         WORKSPACE: "{{ puppet_workspace }}"
         TEMPEST_FROM_SOURCE: "{{ tempest_from_source }}"
+        PUPPET_ARGS: "--modulepath={{ puppet_modules_path }}"
   always:
     - name: Recover puppet integration test logs
       command: "./copy_logs.sh"
