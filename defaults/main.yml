@@ -31,3 +31,66 @@ required_packages:
   - libxslt-devel
   - ruby-devel
   - rubygems
+
+# Install puppet modules from rpm in p-o-i
+
+enable_puppet_modules_rpm: false
+puppet_modules_rpm:
+  - puppet-aodh
+  - puppet-barbican
+  - puppet-ceilometer
+  - puppet-ceph
+  - puppet-cinder
+  - puppet-congress
+  - puppet-designate
+  - puppet-ec2api
+  - puppet-glance
+  - puppet-gnocchi
+  - puppet-heat
+  - puppet-horizon
+  - puppet-ironic
+  - puppet-keystone
+  - puppet-manila
+  - puppet-mistral
+  - puppet-murano
+  - puppet-neutron
+  - puppet-nova
+  - puppet-octavia
+  - puppet-openstack_extras
+  - puppet-openstacklib
+  - puppet-oslo
+  - puppet-ovn
+  - puppet-panko
+  - puppet-qdr
+  - puppet-redis
+  - puppet-sahara
+  - puppet-swift
+  - puppet-tacker
+  - puppet-tempest
+  - puppet-trove
+  - puppet-vswitch
+  - puppet-vitrage
+  - puppet-zaqar
+  - puppet-powerdns
+  - puppet-kmod
+  - puppet-sysctl
+  - puppet-ipaclient
+  - puppet-staging
+  - puppet-apache
+  - puppet-concat
+  - puppet-firewall
+  - puppet-inifile
+  - puppet-mongodb
+  - puppet-mysql
+  - puppet-rabbitmq
+  - puppet-rsync
+  - puppet-stdlib
+  - puppet-vcsrepo
+  - puppet-xinetd
+  - puppet-memcached
+  - puppet-dns
+  - puppet-corosync
+
+puppet_modules_path: "{% if enable_puppet_modules_rpm %}/usr/share/openstack-puppet/modules:/etc/puppet/modules{% else %}/etc/puppet/modules{% endif %}"
+
+
