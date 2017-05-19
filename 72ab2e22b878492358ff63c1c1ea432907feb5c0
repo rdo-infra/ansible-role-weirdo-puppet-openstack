@@ -22,6 +22,30 @@
       "revId": "72ab2e22b878492358ff63c1c1ea432907feb5c0",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "baa201ad_0579562f",
+        "filename": "defaults/main.yml",
+        "patchSetId": 2
+      },
+      "lineNbr": 92,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2017-05-19T17:32:11Z",
+      "side": 1,
+      "message": "yes, we could do it by parsing Puppetfile. Most cases rpm name is puppet-\u003cmodule name\u003e but there are some exceptions about to this rule and there are some modules we don\u0027t build and in fact are not really used for centos as puppet-apt or  puppet-postgresql and puppet-python so we\u0027d need to maintain a exceptions list. \n\nThe best way i think we could do it is to create a script, copy to the server where p-o-i is going to be deployed and execute it instead of using package module. I can work on creating the script.",
+      "parentUuid": "baa201ad_e5945246",
+      "range": {
+        "startLine": 39,
+        "startChar": 0,
+        "endLine": 92,
+        "endChar": 19
+      },
+      "revId": "72ab2e22b878492358ff63c1c1ea432907feb5c0",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
     }
   ]
 }
