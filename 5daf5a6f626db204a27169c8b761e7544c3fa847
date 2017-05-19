@@ -22,6 +22,30 @@
       "revId": "5daf5a6f626db204a27169c8b761e7544c3fa847",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "baa201ad_a5feca69",
+        "filename": "tasks/main.yml",
+        "patchSetId": 4
+      },
+      "lineNbr": 70,
+      "author": {
+        "id": 128
+      },
+      "writtenOn": "2017-05-19T18:46:39Z",
+      "side": 1,
+      "message": "that\u0027s default value, is it recomended?",
+      "parentUuid": "baa201ad_25c49a3f",
+      "range": {
+        "startLine": 70,
+        "startChar": 0,
+        "endLine": 70,
+        "endChar": 42
+      },
+      "revId": "5daf5a6f626db204a27169c8b761e7544c3fa847",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
     }
   ]
 }
