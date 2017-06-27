@@ -39,6 +39,6 @@ modules_rpm_excludes_common: 'cloudkitty|monasca|watcher|apt|python|postgresql'
 modules_rpm_excludes:
   master: "{{ modules_rpm_excludes_common }}"
   pike: "{{ modules_rpm_excludes_common }}"
-  ocata: "{{ modules_rpm_excludes_common }}|murano"
+  ocata: "{{ modules_rpm_excludes_common }}|murano|qdr"
   newton: "{{ modules_rpm_excludes_common }}|murano|congress|ec2api|octavia|panko"
 puppet_modules_path: "{% if enable_puppet_modules_rpm %}/usr/share/openstack-puppet/modules:/etc/puppet/modules{% else %}/etc/puppet/modules{% endif %}"
