@@ -14,9 +14,19 @@
 #   under the License.
 #
 
+# TDOD (amoralej): until luminous release rpm is in extras-release we can install it from
+# the CBS build URL
 - name: Enable CentOS storage SIG repository for Ceph Jewel
   yum:
-    name: "centos-release-ceph-jewel"
+    name: "http://cbs.centos.org/kojifiles/packages/centos-release-ceph-luminous/1.0/1.el7.centos/noarch/centos-release-ceph-luminous-1.0-1.el7.centos.noarch.rpm"
     state: "present"
   retries: "3"
   delay: "20"
+
+# TDOD (amoralej): until luminous is published in -release we need to disable the production
+# repo and enable the testing one.
+- name: "Disable Ceph luminous release repository"
+  command: "yum-config-manager --disable centos-ceph-luminous"
+
+- name: "Enable Ceph luminous release repository"
+  command: "yum-config-manager --enable centos-ceph-luminous-test"
