@@ -14,16 +14,10 @@
 #   under the License.
 #
 
-- name: Enable CentOS storage SIG repository for Ceph Hammer
+- name: Enable CentOS storage SIG repository for Ceph Luminous
   yum:
-    name: "centos-release-ceph-hammer"
+    name: "centos-release-ceph-luminous"
     state: "present"
   retries: "3"
   delay: "20"
 
-# Since WeIRDO doesn't let puppet-openstack-integration manage repositories,
-# it can't leverage https://review.openstack.org/#/c/410823/ which is meant
-# to address a version conflict between Ceph packages in CentOS base repositories
-# and Ceph storage SIG repositories.
-- name: Increase priority for hammer repo
-  command: "/usr/bin/yum-config-manager --save --setopt=centos-ceph-hammer.priority=1"
