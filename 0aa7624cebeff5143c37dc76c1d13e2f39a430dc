@@ -1,0 +1,9 @@
+Code-Review+2: David Moreau Simard <dms@redhat.com>
+Code-Review+1: Yatin Karel <ykarel@redhat.com>
+Workflow+1: David Moreau Simard <dms@redhat.com>
+Verified+2: Jenkins CI <admin@rpmfactory.beta.rdoproject.org>
+Submitted-by: Jenkins CI <admin@rpmfactory.beta.rdoproject.org>
+Submitted-at: Wed, 11 Oct 2017 12:55:06 +0000
+Reviewed-on: https://review.rdoproject.org/r/10053
+Project: rdo-infra/ansible-role-weirdo-puppet-openstack
+Branch: refs/heads/master
