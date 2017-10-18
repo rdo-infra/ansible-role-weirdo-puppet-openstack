@@ -14,9 +14,12 @@
 #   under the License.
 #
 
-- name: Enable CentOS storage SIG repository for Ceph Jewel
-  yum:
-    name: "centos-release-ceph-jewel"
-    state: "present"
-  retries: "3"
-  delay: "20"
+- name: Enable CentOS storage SIG candidate repository for Ceph Jewel
+  copy:
+    content: |
+      [centos-ceph-jewel-candidate]
+      name=CentOS-$releasever - Ceph Jewel Candidate
+      baseurl=http://cbs.centos.org/repos/storage7-ceph-jewel-candidate/$basearch/os/
+      gpgcheck=0
+      enabled=1
+    dest: /etc/yum.repos.d/CentOS-Ceph-Jewel-Candidate.repo
