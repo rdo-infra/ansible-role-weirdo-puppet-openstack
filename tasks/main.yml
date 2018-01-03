@@ -69,6 +69,11 @@
     package:
       name: "{{ puppet_rpm_list.stdout }}"
       state: present
+
+  - name: ensure puppet environments directory exists
+    file:
+      path: /etc/puppet/environments
+      state: directory
   when: enable_puppet_modules_rpm
 
 - name: Set up qemu-kvm and nested virtualization if available
