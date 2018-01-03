@@ -71,6 +71,24 @@
       state: present
   when: enable_puppet_modules_rpm
 
+- block:
+  - name: ensure puppet environments directory exists
+    file:
+      path: /etc/puppet/environments
+      state: directory
+
+  - name: ensure openstack_integration directory is absent
+    file:
+      path: /etc/puppet/modules/openstack_integration
+      state: absent
+
+  - name: Copy cloned openstack_integration to module path
+    command: cp -r {{ clone_path }} /etc/puppet/modules/openstack_integration
+  when:
+    - enable_puppet_modules_rpm
+    - not manage_puppet_modules
+
+- name: Set up qemu-kvm and nested virtualization if available
 - name: Set up qemu-kvm and nested virtualization if available
   include: qemu-kvm.yml
   static: no
@@ -82,6 +100,7 @@
         chdir: "{{ clone_path }}"
       environment:
         MANAGE_REPOS: "{{ manage_repos }}"
+        MANAGE_PUPPET_MODULES: "{{ manage_puppet_modules }}"
         SCENARIO: "{{ test }}"
         GEM_HOME: "{{ clone_path }}/.bundled_gems"
         TEMPEST_VERSION: "{{ tempest_version }}"

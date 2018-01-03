@@ -34,6 +34,8 @@ required_packages:
 
 # Install puppet modules from rpm in p-o-i
 enable_puppet_modules_rpm: false
+# Manage puppet modules in p-o-i when installed from rpm
+manage_puppet_modules: true
 # Package exclusions depends on release so i'll create a dict
 modules_rpm_excludes_common: 'cloudkitty|monasca|watcher|apt|python|postgresql|ssh_keygen'
 modules_rpm_excludes:
