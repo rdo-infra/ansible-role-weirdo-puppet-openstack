@@ -16,6 +16,24 @@
       "revId": "60ca7cf3a8ec218c47ca355c48693f6d4442f6ed",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a6ced46_529faa03",
+        "filename": "tasks/main.yml",
+        "patchSetId": 2
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 403
+      },
+      "writtenOn": "2018-01-03T11:37:33Z",
+      "side": 1,
+      "message": "Currently not getting a real case where one would set both to parameters to true.\nFollowing testing use case i can think off:- Find difference with modules installed both from git and from rpm(This is the current case which is wrong), For local testing by using --modulepath: /etc/puppet/modules(for git installed) and /usr/share/openstack-puppet/modules(for rpm installed).\nI will revise the patch to use enable_puppet_modules_rpm to set manage_puppet_modules.",
+      "parentUuid": "1a6ced46_129532e4",
+      "revId": "60ca7cf3a8ec218c47ca355c48693f6d4442f6ed",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
     }
   ]
 }
