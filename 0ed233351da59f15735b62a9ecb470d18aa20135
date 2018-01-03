@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1a6ced46_52b6ca8b",
+        "filename": "defaults/main.yml",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 85
+      },
+      "writtenOn": "2018-01-03T12:24:06Z",
+      "side": 1,
+      "message": "Does that work, when is this evaluated?\nafaict this is now always true here in defaults?",
+      "revId": "0ed233351da59f15735b62a9ecb470d18aa20135",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
