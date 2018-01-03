@@ -16,6 +16,24 @@
       "revId": "0ed233351da59f15735b62a9ecb470d18aa20135",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "1a6ced46_7272e6e6",
+        "filename": "defaults/main.yml",
+        "patchSetId": 3
+      },
+      "lineNbr": 38,
+      "author": {
+        "id": 403
+      },
+      "writtenOn": "2018-01-03T12:44:09Z",
+      "side": 1,
+      "message": "This works, it\u0027s being used at line 46.\nIf enable_puppet_modules_rpm\u003dtrue then manage_puppet_modules\u003dfalse\nelse enable_puppet_modules_rpm\u003dfalse then manage_puppet_modules\u003dtrue.",
+      "parentUuid": "1a6ced46_52b6ca8b",
+      "revId": "0ed233351da59f15735b62a9ecb470d18aa20135",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
     }
   ]
 }
