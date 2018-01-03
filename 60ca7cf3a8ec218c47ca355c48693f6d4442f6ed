@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "1a6ced46_129532e4",
+        "filename": "tasks/main.yml",
+        "patchSetId": 2
+      },
+      "lineNbr": 89,
+      "author": {
+        "id": 85
+      },
+      "writtenOn": "2018-01-03T11:07:17Z",
+      "side": 1,
+      "message": "In proposed CI change 11147 this is always true when enable_puppet_modules_rpm is true, so this could be just move to the block above?\nIs there any situation when we would have\nenable_puppet_modules_rpm \u003d true\nand\nmanage_puppet_modules \u003d true\n?",
+      "revId": "60ca7cf3a8ec218c47ca355c48693f6d4442f6ed",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
