@@ -61,9 +61,14 @@
     state: directory
 
 - block:
-  - name: get packages list
-    shell: "grep ^mod {{ clone_path }}/Puppetfile |egrep -v '{{ modules_rpm_excludes[openstack_release] }}' |awk '{print $2}'|sed \"s/[,']//g\"|while read p; do printf puppet-$p,; done|sed 's/,$//'"
-    register: puppet_rpm_list
+    - block:
+        - name: get packages list
+          shell: "grep ^mod {{ clone_path }}/Puppetfile |egrep -v '{{ modules_rpm_excludes[openstack_release] }}' |awk '{print $2}'|sed \"s/[,']//g\"|while read p; do printf puppet-$p,; done|sed 's/,$//'"
+          register: puppet_rpm_list
+      rescue:
+        - name: get packages list (defaults to master)
+          shell: "grep ^mod {{ clone_path }}/Puppetfile |egrep -v '{{ modules_rpm_excludes['master'] }}' |awk '{print $2}'|sed \"s/[,']//g\"|while read p; do printf puppet-$p,; done|sed 's/,$//'"
+          register: puppet_rpm_list
 
   - name: Install puppet modules from rpm
     package:
