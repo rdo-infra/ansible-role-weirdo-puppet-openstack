@@ -85,6 +85,11 @@
   include: qemu-kvm.yml
   static: no
 
+- name: Remove zuul cloner executable
+  file:
+    path: "/usr/zuul-env/bin/zuul-cloner"
+    state: absent
+
 - block:
     - name: "Run puppet integration test - {{ test }}"
       command: "./run_tests.sh"
