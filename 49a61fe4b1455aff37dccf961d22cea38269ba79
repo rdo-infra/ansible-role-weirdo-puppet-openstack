@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "9abe1de1_916ee22d",
+        "filename": "tasks/main.yml",
+        "patchSetId": 2
+      },
+      "lineNbr": 87,
+      "author": {
+        "id": 113
+      },
+      "writtenOn": "2018-10-17T09:40:25Z",
+      "side": 1,
+      "message": "Same as the packstack role, let\u0027s use (nested_virtualization | bool) to ensure boolean checks.",
+      "revId": "49a61fe4b1455aff37dccf961d22cea38269ba79",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
