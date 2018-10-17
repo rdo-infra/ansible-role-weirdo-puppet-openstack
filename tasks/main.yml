@@ -83,6 +83,8 @@
 
 - name: Set up qemu-kvm and nested virtualization if available
   include: qemu-kvm.yml
+  when:
+    - nested_virtualization
   static: no
 
 - name: Remove zuul cloner executable

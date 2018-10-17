@@ -31,6 +31,7 @@ For default values, see `defaults/main.yml`_
 * ``puppet_workspace``: Path where puppet-openstack-integration should believe the jenkins workspace is at
 * ``required_packages``: Required packaged dependencies to install prior to running the tests
 * ``gem_packages``: Required packaged gems to install prior to running the tests
+* ``nested_virtualization``: When set to true, it will enable nested virtualization in the system based on availability
 
 .. _defaults/main.yml: https://github.com/redhat-openstack/ansible-role-weirdo-puppet-openstack/blob/master/defaults/main.yml
 
