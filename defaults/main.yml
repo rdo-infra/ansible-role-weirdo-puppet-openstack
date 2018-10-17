@@ -25,6 +25,8 @@ tempest_version: ""
 tempest_from_source: "false"
 
 puppet_workspace: "/var/log/weirdo-project"
+# To enable/disable nested_virtualization
+nested_virtualization: "true"
 
 required_packages:
   - libxml2-devel
