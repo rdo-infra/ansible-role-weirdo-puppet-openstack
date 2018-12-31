@@ -25,7 +25,9 @@
 # scenario004 uses Ceph backend with rgw for Glance
 - name: Include extra repositories if required
   include: "repositories/{{ openstack_release }}.yml"
-  when: test == "scenario001" or test == "scenario004"
+  when:
+    - ansible_distribution != 'Fedora'
+    - test == "scenario001" or test == "scenario004"
   static: no
 
 - block:
