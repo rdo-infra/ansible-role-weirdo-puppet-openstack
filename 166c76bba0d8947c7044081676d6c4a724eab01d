@@ -1,0 +1,9 @@
+Code-Review+2: David Moreau Simard <dms@redhat.com>
+Workflow+1: David Moreau Simard <dms@redhat.com>
+Workflow+1: <tdecacqu@redhat.com>
+Verified+2: Zuul CI <zuul@review.rdoproject.org>
+Submitted-by: Zuul CI <zuul@review.rdoproject.org>
+Submitted-at: Fri, 04 Jan 2019 09:44:25 +0000
+Reviewed-on: https://review.rdoproject.org/r/18037
+Project: rdo-infra/ansible-role-weirdo-puppet-openstack
+Branch: refs/heads/master
