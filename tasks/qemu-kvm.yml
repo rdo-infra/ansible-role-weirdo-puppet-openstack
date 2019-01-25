@@ -52,18 +52,18 @@
       modprobe:
         name: "kvm_intel"
         state: "present"
-      register: nested_virtualization
+      register: nested_virtualization_status
 
     - name: Ensure nested virtualization is enabled
       command: cat /sys/module/kvm_intel/parameters/nested
-      register: nested_virtualization
-      failed_when: ('FAILED' in nested_virtualization.stderr) or
-                   ('N' in nested_virtualization.stdout)
+      register: nested_virtualization_status
+      failed_when: ('FAILED' in nested_virtualization_status.stderr) or
+                   ('N' in nested_virtualization_status.stdout)
 
     - debug:
         msg: >
           /sys/module/kvm_intel/parameters/nested:
-          {{ nested_virtualization.stdout }}
+          {{ nested_virtualization_status.stdout }}
 
     - name: Configure kvm hypervisor if running nested virtualization
       lineinfile:
@@ -94,18 +94,18 @@
       modprobe:
         name: "kvm_amd"
         state: "present"
-      register: nested_virtualization
+      register: nested_virtualization_status
 
     - name: Ensure nested virtualization is enabled
       command: cat /sys/module/kvm_amd/parameters/nested
-      register: nested_virtualization
-      failed_when: ('FAILED' in nested_virtualization.stderr) or
-                   ('0' in nested_virtualization.stdout)
+      register: nested_virtualization_status
+      failed_when: ('FAILED' in nested_virtualization_status.stderr) or
+                   ('0' in nested_virtualization_status.stdout)
 
     - debug:
         msg: >
           /sys/module/kvm_amd/parameters/nested:
-          {{ nested_virtualization.stdout }}
+          {{ nested_virtualization_status.stdout }}
 
     - name: Configure kvm hypervisor if running nested virtualization
       lineinfile:
