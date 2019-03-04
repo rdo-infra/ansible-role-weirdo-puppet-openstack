@@ -26,7 +26,7 @@ tempest_from_source: "false"
 
 puppet_workspace: "/var/log/weirdo-project"
 # To enable/disable nested_virtualization
-nested_virtualization: "true"
+nested_virtualization: "false"
 
 required_packages:
   - libxml2-devel
@@ -37,7 +37,7 @@ required_packages:
 # Install puppet modules from rpm in p-o-i
 enable_puppet_modules_rpm: false
 # Package exclusions depends on release so i'll create a dict
-modules_rpm_excludes_common: 'cloudkitty|monasca|watcher|apt|python|postgresql|ssh_keygen'
+modules_rpm_excludes_common: 'cloudkitty|monasca|watcher|apt|python|postgresql|ssh_keygen|git_resource'
 modules_rpm_excludes:
   master: "{{ modules_rpm_excludes_common }}"
   rocky: "{{ modules_rpm_excludes_common }}"
