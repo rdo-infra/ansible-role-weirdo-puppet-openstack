@@ -83,11 +83,12 @@
       state: directory
   when: enable_puppet_modules_rpm
 
-- name: Set up qemu-kvm and nested virtualization if available
-  include: qemu-kvm.yml
-  when:
-    - nested_virtualization|bool
-  static: no
+# amoralej - temporarily disable nested virtualization until it's fixed in RDO Cloud
+#- name: Set up qemu-kvm and nested virtualization if available
+#  include: qemu-kvm.yml
+#  when:
+#    - nested_virtualization|bool
+#  static: no
 
 - name: Remove zuul cloner executable
   file:
