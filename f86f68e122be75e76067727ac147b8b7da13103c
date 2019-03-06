@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "a491fe7b_1de642b0",
+        "filename": "defaults/main.yml",
+        "patchSetId": 2
+      },
+      "lineNbr": 29,
+      "author": {
+        "id": 403
+      },
+      "writtenOn": "2019-03-06T03:04:03Z",
+      "side": 1,
+      "message": "we are setting this in weirdo when running set.",
+      "revId": "f86f68e122be75e76067727ac147b8b7da13103c",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7",
+      "unresolved": false
+    }
+  ]
+}
