@@ -40,6 +40,7 @@ enable_puppet_modules_rpm: false
 modules_rpm_excludes_common: 'cloudkitty|monasca|watcher|apt|python|postgresql|ssh_keygen|git_resource'
 modules_rpm_excludes:
   master: "{{ modules_rpm_excludes_common }}"
+  stein: "{{ modules_rpm_excludes_common }}"
   rocky: "{{ modules_rpm_excludes_common }}"
   queens: "{{ modules_rpm_excludes_common }}"
   pike: "{{ modules_rpm_excludes_common }}"
