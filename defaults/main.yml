@@ -37,13 +37,13 @@ required_packages:
 # Install puppet modules from rpm in p-o-i
 enable_puppet_modules_rpm: false
 # Package exclusions depends on release so i'll create a dict
-modules_rpm_excludes_common: 'cloudkitty|monasca|watcher|apt|python|postgresql|ssh_keygen|git_resource'
+modules_rpm_excludes_common: 'cloudkitty|monasca|apt|python|postgresql|ssh_keygen|git_resource'
 modules_rpm_excludes:
   master: "{{ modules_rpm_excludes_common }}"
-  stein: "{{ modules_rpm_excludes_common }}"
-  rocky: "{{ modules_rpm_excludes_common }}"
-  queens: "{{ modules_rpm_excludes_common }}"
-  pike: "{{ modules_rpm_excludes_common }}"
-  ocata: "{{ modules_rpm_excludes_common }}|murano|qdr"
-  newton: "{{ modules_rpm_excludes_common }}|murano|congress|ec2api|octavia|panko"
+  stein: "{{ modules_rpm_excludes_common }}|watcher"
+  rocky: "{{ modules_rpm_excludes_common }}|watcher"
+  queens: "{{ modules_rpm_excludes_common }}|watcher"
+  pike: "{{ modules_rpm_excludes_common }}|watcher"
+  ocata: "{{ modules_rpm_excludes_common }}|murano|qdr|watcher"
+  newton: "{{ modules_rpm_excludes_common }}|murano|congress|ec2api|octavia|panko|watcher"
 puppet_modules_path: "{% if enable_puppet_modules_rpm %}/usr/share/openstack-puppet/modules:/etc/puppet/modules{% else %}/etc/puppet/modules{% endif %}"
