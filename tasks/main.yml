@@ -62,6 +62,10 @@
     path: "{{ clone_path }}/.bundled_gems"
     state: directory
 
+# r10k is failing to deploy puppet modules from opendev.org in CentOS7
+- name: use github mirror to deploy modules
+  shell: "sed -i 's/opendev.org/github.com/g;s/git.openstack.org/github.com/g' {{ clone_path }}/Puppetfile"
+
 - block:
   - block:
     - name: get packages list
