@@ -21,3 +21,5 @@
   retries: "3"
   delay: "20"
 
+- name: Disable ceph ganesha repo
+  shell: "yum-config-manager --disable centos-nfs-ganesha28"
