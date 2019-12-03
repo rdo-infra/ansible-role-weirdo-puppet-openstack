@@ -95,6 +95,9 @@
     path: "/usr/zuul-env/bin/zuul-cloner"
     state: absent
 
+- name: Install kombu 4.6.6
+  shell: "sudo yum install -y https://cbs.centos.org/kojifiles/work/tasks/7159/1057159/python2-kombu-4.6.6-1.el7.noarch.rpm"
+
 - block:
     - name: "Run puppet integration test - {{ test }}"
       command: "./run_tests.sh"
