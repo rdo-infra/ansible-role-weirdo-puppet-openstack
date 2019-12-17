@@ -28,6 +28,7 @@
   when:
     - ansible_distribution != 'Fedora'
     - test == "scenario001" or test == "scenario004"
+    - false
   static: no
 
 - block:
