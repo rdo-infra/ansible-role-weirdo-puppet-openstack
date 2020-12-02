@@ -26,7 +26,7 @@
 - name: Include extra repositories if required
   include: "repositories/{{ openstack_release }}.yml"
   when:
-    - ansible_distribution == "CentOS" and ansible_distribution_major_version != "8"
+    - ansible_distribution != 'Fedora'
     - test == "scenario001" or test == "scenario004"
   static: no
 
