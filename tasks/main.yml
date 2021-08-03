@@ -24,11 +24,10 @@
 # scenario001 uses Ceph backend for Cinder, Glance, Gnocchi
 # scenario004 uses Ceph backend with rgw for Glance
 - name: Include extra repositories if required
-  include: "repositories/{{ openstack_release }}.yml"
+  include_tasks: "repositories/{{ openstack_release }}.yml"
   when:
     - ansible_distribution != 'Fedora'
     - test == "scenario001" or test == "scenario004"
-  static: no
 
 - name: set sysctl net.ipv6.conf.all.disable_ipv6  to 0
   sysctl:
@@ -93,7 +92,7 @@
     file:
       path: /etc/puppet/environments
       state: directory
-  when: enable_puppet_modules_rpm
+  when: enable_puppet_modules_rpm |bool
 
 # amoralej - temporarily disable nested virtualization until it's fixed in RDO Cloud
 #- name: Set up qemu-kvm and nested virtualization if available

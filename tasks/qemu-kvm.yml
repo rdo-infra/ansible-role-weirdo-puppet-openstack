@@ -75,8 +75,8 @@
         - "openstack_integration::nova::libvirt_virt_type: kvm"
         - "openstack_integration::nova::libvirt_cpu_mode: host-model"
   when:
-    - "{{ 'Intel' in ansible_processor |join('') }}"
-    - "{{ 'vmx' in cpu_flags }}"
+    - "'Intel' in ansible_processor |join('')"
+    - "'vmx' in cpu_flags"
 
 - block:
     - name: Unload kvm_amd module
@@ -117,5 +117,5 @@
         - "openstack_integration::nova::libvirt_virt_type: kvm"
         - "openstack_integration::nova::libvirt_cpu_mode: host-model"
   when:
-    - "{{ 'AMD' in ansible_processor |join('') }}"
-    - "{{ 'svm' in cpu_flags }}"
+    - "'AMD' in ansible_processor |join('')"
+    - "'svm' in cpu_flags"
