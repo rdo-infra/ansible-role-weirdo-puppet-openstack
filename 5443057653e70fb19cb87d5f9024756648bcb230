@@ -1,0 +1,10 @@
+Code-Review+2: Alfredo Moralejo <amoralej@redhat.com>
+Code-Review+2: Javier Peña <jpena@redhat.com>
+Code-Review+1: Joel Capitao <jcapitao@redhat.com>
+Workflow+1: Yatin Karel <ykarel@redhat.com>
+Verified+2: Zuul CI <zuul@review.rdoproject.org>
+Submitted-by: Zuul CI <zuul@review.rdoproject.org>
+Submitted-at: Thu, 07 Oct 2021 11:43:01 +0000
+Reviewed-on: https://review.rdoproject.org/r/c/rdo-infra/ansible-role-weirdo-puppet-openstack/+/35996
+Project: rdo-infra/ansible-role-weirdo-puppet-openstack
+Branch: refs/heads/master
