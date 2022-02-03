@@ -20,5 +20,16 @@
     state: "present"
   retries: "3"
   delay: "20"
-  when: ansible_distribution == "CentOS" and ansible_distribution_major_version != "9"
+  when: ansible_distribution == "CentOS" and ansible_distribution_major_version == "7"
 
+- name: Enable Trunk repository for Ceph Nautilus
+  yum_repository:
+    name: "trunk-ceph-nautilus"
+    description: "CentOS-$releasever - Ceph Nautilus"
+    gpgcheck: no
+    state: "present"
+    baseurl: "https://trunk.rdoproject.org/centos8-master/deps/storage/nautilus/"
+    file: "trunk-ceph-nautilus"
+  retries: "3"
+  delay: "20"
+  when: ansible_distribution == "CentOS" and ansible_distribution_major_version == "8"
