@@ -92,6 +92,10 @@
     file:
       path: /etc/puppet/environments
       state: directory
+
+  - name: Disable managing puppet modules from source
+    set_fact:
+      manage_puppet_modules: false
   when: enable_puppet_modules_rpm |bool
 
 # amoralej - temporarily disable nested virtualization until it's fixed in RDO Cloud
@@ -121,6 +125,7 @@
         PUPPETFILE_DIR: "/etc/puppet/modules"
         PUPPET_PKG: "puppet"
         PUPPET_ARGS: "--modulepath={{ puppet_modules_path }}"
+        MANAGE_PUPPET_MODULES: "{{ manage_puppet_modules }}"
   always:
     - name: Recover puppet integration test logs
       command: "./copy_logs.sh"
