@@ -33,6 +33,7 @@ required_packages:
   - libxslt-devel
   - ruby-devel
   - rubygems
+  - qemu-img
 
 # Install puppet modules from rpm in p-o-i
 enable_puppet_modules_rpm: false
