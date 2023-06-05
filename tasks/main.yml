@@ -68,17 +68,6 @@
     force: "yes"
   when: refspec is defined
 
-- name: Create directory /home/zuul/src/opendev.org/openstack/
-  file:
-    path: /home/zuul/src/opendev.org/openstack/
-    state: directory
-
-- name: Create symlink /home/zuul/src/opendev.org/openstack/puppet-openstack-integration to the cloned repo
-  file:
-    path: /home/zuul/src/opendev.org/openstack/puppet-openstack-integration
-    src: "{{ clone_path }}"
-    state: link
-
 - name: Create bundled gems directory
   file:
     path: "{{ clone_path }}/.bundled_gems"
@@ -133,7 +122,6 @@
         PUPPET_PKG: "puppet"
         PUPPET_ARGS: "--modulepath={{ puppet_modules_path }}"
         SWAP_SIZE_GB: 8
-        ZUUL_BRANCH: "{{ version }}"
   always:
     - name: Recover puppet integration test logs
       command: "./copy_logs.sh"
