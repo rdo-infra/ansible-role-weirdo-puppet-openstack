@@ -16,6 +16,24 @@
       "message": "Need to add the EPEL repo",
       "revId": "0efa98dce07a0f16fc598317c41e1486a26d2ba8",
       "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    },
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "1b8089fa_fb5c4d32",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 635
+      },
+      "writtenOn": "2023-10-11T13:18:09Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "1550114d_cb57837e",
+      "revId": "0efa98dce07a0f16fc598317c41e1486a26d2ba8",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
     }
   ]
 }
