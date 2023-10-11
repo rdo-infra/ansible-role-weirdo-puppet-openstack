@@ -1,0 +1,46 @@
+---
+#   Copyright Red Hat, Inc. All Rights Reserved.
+#
+#   Licensed under the Apache License, Version 2.0 (the "License"); you may
+#   not use this file except in compliance with the License. You may obtain
+#   a copy of the License at
+#
+#       http://www.apache.org/licenses/LICENSE-2.0
+#
+#   Unless required by applicable law or agreed to in writing, software
+#   distributed under the License is distributed on an "AS IS" BASIS, WITHOUT
+#   WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the
+#   License for the specific language governing permissions and limitations
+#   under the License.
+#
+
+- name: Enable CentOS storage SIG repository for Ceph Reef
+  yum:
+    name: "centos-release-ceph-reef"
+    state: "present"
+  retries: "3"
+  delay: "20"
+
+# We install it only to pull the EPEL GPG KEY, we actually configuring
+# the EPEL repo with the "includepkgs" directive in next task
+- name: Enable EPEL repository for Ceph Reef
+  yum:
+    name: "epel-release"
+    state: "present"
+  retries: "3"
+  delay: "20"
+
+- name: Set list of packages we want to only use fom the EPEL repository
+  ansible.builtin.yum_repository:
+    name: epel
+    description: Extra Packages for Enterprise Linux $releasever - $basearch
+    state: present
+    file: epel
+    metalink: https://mirrors.fedoraproject.org/metalink?repo=epel-$releasever&arch=$basearch&infra=$infra&content=$contentdir
+    enabled: true
+    gpgcheck: true
+    gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-$releasever
+    priority: 100
+    includepkgs: ['libarrow*', 'parquet*', 'python3-asyncssh', 're2', 'python3-grpcio', 'grpc*', 'abseil*']
+  retries: "3"
+  delay: "20"
