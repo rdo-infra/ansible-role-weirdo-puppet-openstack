@@ -1,0 +1,8 @@
+Workflow+1: Joel Capitao <jcapitao@redhat.com>
+Verified+2: Zuul CI <zuul@review.rdoproject.org>
+Code-Review+2: Alfredo Moralejo <amoralej@redhat.com>
+Submitted-by: Zuul CI <zuul@review.rdoproject.org>
+Submitted-at: Thu, 19 Oct 2023 10:04:17 +0000
+Reviewed-on: https://review.rdoproject.org/r/c/rdo-infra/ansible-role-weirdo-puppet-openstack/+/50588
+Project: rdo-infra/ansible-role-weirdo-puppet-openstack
+Branch: refs/heads/master
