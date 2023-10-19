@@ -21,26 +21,8 @@
   retries: "3"
   delay: "20"
 
-# We install it only to pull the EPEL GPG KEY, we actually configuring
-# the EPEL repo with the "includepkgs" directive in next task
 - name: Enable EPEL repository for Ceph Reef
-  yum:
-    name: "epel-release"
-    state: "present"
-  retries: "3"
-  delay: "20"
-
-- name: Set list of packages we want to only use fom the EPEL repository
-  ansible.builtin.yum_repository:
-    name: epel
-    description: Extra Packages for Enterprise Linux $releasever - $basearch
-    state: present
-    file: epel
-    metalink: https://mirrors.fedoraproject.org/metalink?repo=epel-$releasever&arch=$basearch&infra=$infra&content=$contentdir
-    enabled: true
-    gpgcheck: true
-    gpgkey: file:///etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-$releasever
-    priority: 100
-    includepkgs: ['libarrow*', 'parquet*', 'python3-asyncssh', 're2', 'python3-grpcio', 'grpc*', 'abseil*']
-  retries: "3"
-  delay: "20"
+  shell: "rpm -q rdo-release && dnf config-manager --set-enabled epel-low-priority"
+  ignore_errors: true
+  register: is_installed
+  failed_when: is_installed.rc not in [0, 1]
