@@ -20,9 +20,3 @@
     state: "present"
   retries: "3"
   delay: "20"
-
-- name: Enable EPEL repository for Ceph Reef
-  shell: "rpm -q rdo-release && dnf config-manager --set-enabled epel-low-priority"
-  ignore_errors: true
-  register: is_installed
-  failed_when: is_installed.rc not in [0, 1]
