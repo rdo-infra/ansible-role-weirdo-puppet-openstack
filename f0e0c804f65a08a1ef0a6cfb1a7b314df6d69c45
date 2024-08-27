@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "unresolved": false,
+      "key": {
+        "uuid": "e48d81f6_3358cdbe",
+        "filename": "/PATCHSET_LEVEL",
+        "patchSetId": 1
+      },
+      "lineNbr": 0,
+      "author": {
+        "id": 635
+      },
+      "writtenOn": "2024-08-27T10:59:08Z",
+      "side": 1,
+      "message": "I proposed a patch upstream to fix the issue \n\nhttps://review.opendev.org/c/openstack/puppet-openstack-integration/+/927256",
+      "revId": "f0e0c804f65a08a1ef0a6cfb1a7b314df6d69c45",
+      "serverId": "270e2033-b340-4cff-9539-693957ebf0e7"
+    }
+  ]
+}
